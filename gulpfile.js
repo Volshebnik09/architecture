@@ -18,6 +18,7 @@ function buildStyles() {
     .pipe(sass().on('error', sass.logError))
     .pipe(dest('./dist/styles'));
 };
+
 exports.imageMinify = ()=>{
   return src('src/images/*')
       .pipe(imagemin([
