@@ -1,0 +1,48 @@
+.header {
+    position: relative;
+    height: 70px;
+    width: 100%;
+    background-color: $black_backround;
+    .header__container {
+        position: relative;
+        height: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header__center {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        width: 395px;
+        gap:20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .header__link {
+            color: $red
+        }
+    }
+    .header__nav {
+        padding-top: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap:30px
+    }
+    .header__link{
+        @include ButtonS;
+    }
+    .header__number {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        color: #FFFFFF;
+    }
+}
+
+@include media-custom(1000px){
+
+}

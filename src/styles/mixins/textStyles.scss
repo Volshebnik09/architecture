@@ -1,0 +1,81 @@
+// Text 
+@mixin H0 {
+    font-family: 'STIX Two Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 55px;
+    line-height: 135%;
+    color: #FFFFFF;
+}
+
+@mixin H1 {
+    font-family: 'STIX Two Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 38px;
+    line-height: 135%;
+    color: #FFFFFF;
+}
+
+@mixin SH0 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 160%;
+    color: #FFFFFF;
+}
+
+@mixin SH1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 160%;
+    color: #FFFFFF;
+}
+
+@mixin SH2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    color: #FFFFFF;
+}
+
+@mixin ButtonB {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    color: #FFFFFF;
+}
+
+@mixin ButtonS {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: #FFFFFF;
+}
+
+@mixin Label {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 165%;
+    color: #FFFFFF;
+}
+
+@mixin Legend {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 160%;
+    color: #FFFFFF;
+}

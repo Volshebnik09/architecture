@@ -1,0 +1,16 @@
+// states 
+@mixin Active{
+    background: #FFFFFF;
+    opacity: 0.15;
+    @content;
+}
+@mixin Hover{
+    background: #FFFFFF;
+    opacity: 0.15;
+    @content;
+}
+@mixin Normal{
+    background: #FFFFFF;
+    opacity: 0.05;  
+    @content;
+}
