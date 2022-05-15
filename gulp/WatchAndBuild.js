@@ -1,5 +1,6 @@
 const { src, dest,watch } = require('gulp');
 const path = require('../projectConfig.json').path;
+const sassGlob = require('gulp-sass-glob');
 const sass = require('gulp-sass')(require('sass'));
 const pug = require('gulp-pug');
 
@@ -13,18 +14,19 @@ function buildPug () {
         .pipe(dest(path.distPath));
 };
 
-
 function buildCSS (){
-    return src('./sass/**/*.scss')
+    return src(path.srcPath + '/styles/*.scss')
+        .pipe(sassGlob())
         .pipe(sass({
             outputStyle:'compressed',
         }).on('error', sass.logError))
-        .pipe(dest('./css'));
+        .pipe(dest(path.distPath + '/styles'));
 }
+
 exports.WatchAndBuild = (cb) =>{
     buildPug();
     buildCSS();
-    watch(path.srcPath + '/**/*.pug',buildPug);
-    watch(path.srcPath + '/**/*.styl',buildCSS);
+    watch(path.srcPath + '/**.pug',buildPug);
+    watch(path.srcPath + '/**/*.scss',buildCSS);
     cb();
 }
