@@ -2,7 +2,7 @@
   "name": "architecture",
   "version": "1.0.0",
   "description": "",
-  "main": "gulpfile.js",
+  "main": "gulp/build.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Volshebnik09/architecture/issues"
   },
-  "homepage": "https://github.com/Volshebnik09/architecture#readme"
+  "homepage": "https://github.com/Volshebnik09/architecture#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-pug": "^5.0.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.51.0"
+  }
 }
