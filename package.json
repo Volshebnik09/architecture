@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/Volshebnik09/architecture#readme",
   "devDependencies": {
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-pug": "^5.0.0",
     "gulp-sass": "^5.1.0",
     "gulp-sass-glob": "^1.1.0",
+    "gulp-webp": "^4.0.1",
     "sass": "^1.51.0"
   }
 }

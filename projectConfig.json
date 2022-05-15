@@ -1,6 +1,7 @@
 {
   "path": {
     "srcPath": "../src",
-    "distPath": "../dist"
+    "distPath": "../dist",
+    "buildPath": "../build"
   }
 }
