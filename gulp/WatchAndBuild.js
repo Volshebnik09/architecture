@@ -23,7 +23,7 @@ function buildCSS (){
         .pipe(dest(path.distPath + '/styles'));
 }
 
-exports.WatchAndBuild = (cb) =>{
+exports.default= (cb) =>{
     buildPug();
     buildCSS();
     watch(path.srcPath + '/**.pug',buildPug);
