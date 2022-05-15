@@ -1,5 +1,6 @@
 *, *::before, *::after {
   box-sizing: inherit;
+  backdrop-filter: blur(0);
 }
 
 html {

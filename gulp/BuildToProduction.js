@@ -5,9 +5,10 @@ const sass = require('gulp-sass')(require('sass'));
 const pug = require('gulp-pug');
 const webp = require('gulp-webp');
 const del = require('del');
+const autoprefixer = require('gulp-autoprefixer');
 
 function buildPug () {
-    return src(path.buildPath + '/*.pug')
+    return src(path.srcPath + '/*.pug')
         .pipe(
             pug({
                 pretty:false
@@ -22,6 +23,9 @@ function buildCSS (){
         .pipe(sass({
             outputStyle:'compressed',
         }).on('error', sass.logError))
+        .pipe(autoprefixer({
+            cascade: false,
+        }))
         .pipe(dest(path.buildPath + '/styles'));
 }
 
@@ -35,7 +39,8 @@ function transformPicture() {
 
 exports.default = async (cb) =>{
     await del(path.buildPath,{force:true});
-    transformPicture();
-    buildCSS();
     buildPug();
+    buildCSS();
+    transformPicture();
+    cb();
 }
