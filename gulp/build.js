@@ -1,14 +1,15 @@
 const { src, dest } = require('gulp');
+const path = require('../projectConfig.json').path;
 const pug = require('gulp-pug');
 
 function buildPug () {
-    return src('./src/*.pug')
+    return src('.' + path.srcPath + '/*.pug')
         .pipe(
             pug({
                 pretty:true
             })
         )
-        .pipe(dest('./dist'));
+        .pipe(dest('.' + path.distPath));
 };
 
-buildPug()
+exports.build = buildPug
