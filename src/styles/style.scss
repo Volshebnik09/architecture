@@ -2,5 +2,7 @@
 @import "common/*.scss";
 
 // импорт стилей статичных блоков на подобие header и footer
-@import "../template/**/*.scss";
+@import "../template/**/style.scss";
 
+// импорт стилей компонентов
+@import "../components/**/style.scss";
