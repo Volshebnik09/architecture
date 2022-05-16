@@ -32,7 +32,7 @@ function transformPicture() {
 exports.default= (cb) =>{
     buildPug();
     buildCSS();
-    watch(path.srcPath + '/**.pug',buildPug);
+    watch(path.srcPath + '/**/*.pug',buildPug);
     watch(path.srcPath + '/**/*.scss',buildCSS);
     watch(path.srcPath +'/**/*.{png,jpeg}',transformPicture);
     cb();

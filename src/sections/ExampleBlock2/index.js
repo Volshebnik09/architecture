@@ -1,0 +1,1 @@
+document.querySelector('.ExampleBlock').innerHTML = document.querySelector('.ExampleBlock').innerHTML + "Index2.js"
