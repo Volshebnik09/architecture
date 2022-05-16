@@ -1,0 +1,39 @@
+.reservation__container {
+  display: flex;
+  align-items: center;
+  gap:24px;
+}
+.reservation__title {
+  color: $blue;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 150%;
+
+  letter-spacing: -0.01em;
+}
+.reservation__subtitle {
+  padding: 24px 0 32px 0;
+  max-width: 485px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  /* or 27px */
+  color: $gray;
+}
+.reservation--right {
+  display: flex;
+  gap: 24px;
+}
+.reservation--left {
+  max-width: 587px;
+}
+.reservation {
+  padding-top: 80px;
+}
+.reservation--right img:nth-child(2){
+  transform: translateY(81px);
+}
