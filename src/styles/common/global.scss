@@ -1,6 +1,5 @@
 *, *::before, *::after {
   box-sizing: inherit;
-  backdrop-filter: blur(0);
 }
 
 html {
@@ -20,7 +19,7 @@ a {
 }
 .container {
   padding: 0 15px;
-  max-width: 1248px;
+  max-width: 1200px;
   margin: auto;
 }
 

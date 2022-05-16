@@ -7,5 +7,10 @@
 // импорт стилей компонентов
 @import "../components/**/style.scss";
 
+@import "../mixins/**/style.scss";
+
 // импорт стилей секций
 @import "../sections/**/style.scss";
+
+
+@import "../base/fonts/fonts.scss";

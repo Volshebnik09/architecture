@@ -12,7 +12,7 @@ function buildPug (cb) {
     return src(path.srcPath + '/pages/**/*.pug')
         .pipe(
             pug({
-                pretty:true
+                pretty:true,
             })
         )
         .pipe(rename({
