@@ -7,8 +7,8 @@
     "build:production": "gulp -f gulp/BuildToProduction.js",
     "build:development": "gulp -f gulp/FullRebuildDist.js",
     "build": "gulp -f gulp/FullRebuildDist.js",
-    "runLocalServer": "serve dist",
-    "runLSAndWatch": "concurrently --kill-others \"serve dist\" \"gulp -f gulp/WatchAndBuild.js\""
+    "localServer": "serve dist",
+    "lSAndWatch": "concurrently --kill-others \"serve dist\" \"gulp -f gulp/WatchAndBuild.js\""
   },
   "repository": {
     "type": "git",
