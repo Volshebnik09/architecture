@@ -8,7 +8,11 @@ const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
 const webpack = require('gulp-webpack');
 const rename = require('gulp-rename');
+const minify = require('gulp-minify');
 
+var webpackCFG = require('../webpack.config.js');
+
+console.log(webpackCFG)
 function buildPug (cb) {
     return src(path.srcPath + '/pages/**/*.pug')
         .pipe(
@@ -48,7 +52,8 @@ function transformPicture() {
 
 function buildJS() {
     return src(path.srcPath)
-    .pipe(webpack(require('../webpack.config.js')))
+    .pipe(webpack(webpackCFG))
+    .pipe(minify())
     .pipe(dest(path.buildPath + '/'));
 }
 
