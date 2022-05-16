@@ -5,14 +5,19 @@ const sass = require('gulp-sass')(require('sass'));
 const pug = require('gulp-pug');
 var webpack = require('gulp-webpack');
 const webp = require('gulp-webp');
+const rename = require('gulp-rename');
+
 
 function buildPug (cb) {
-    return src(path.srcPath + '/pages/main/*.pug')
+    return src(path.srcPath + '/pages/**/*.pug')
         .pipe(
             pug({
                 pretty:true
             })
         )
+        .pipe(rename({
+            dirname:"",
+        }))
         .pipe(dest(path.distPath));
     cb();
 };
@@ -29,6 +34,9 @@ function buildCSS (){
 function transformPicture() {
     return src(path.srcPath +'/**/*.{png,jpeg}')
     .pipe(webp())
+    .pipe(rename({
+            dirname:"",
+    }))
     .pipe(dest(path.distPath+'/images'))
 }
 
@@ -40,6 +48,7 @@ function buildJS() {
 exports.default= (cb) =>{
     buildPug();
     buildCSS();
+    buildJS();
     watch(path.srcPath + '/**/*.pug',buildPug);
     watch(path.srcPath + '/**/*.scss',buildCSS);
     watch(path.srcPath +'/**/*.{png,jpeg}',transformPicture);

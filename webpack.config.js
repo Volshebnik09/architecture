@@ -4,7 +4,8 @@ var path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    main: "../src/pages/main/main.js"
+    main: "../src/pages/main/main.js",
+    page1: '../src/pages/page1/page1.js'
   },
   optimization: {
     splitChunks: {
@@ -12,13 +13,6 @@ module.exports = {
       chunks: 'all',
     },
   },
-  // plugins: [
-  //   new CommonsChunkPlugin({
-  //     name: "commons",
-  //     filename: "commons.js",
-  //     chunks: ["index", "aboutUs", "contactUs"]
-  //   })
-  // ]
   output: {
     filename: 'scripts/[name].bundle.js',
     path: path.resolve(__dirname, '../dist')

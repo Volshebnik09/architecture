@@ -6,15 +6,21 @@ const pug = require('gulp-pug');
 const webp = require('gulp-webp');
 const del = require('del');
 const autoprefixer = require('gulp-autoprefixer');
+const webpack = require('gulp-webpack');
+const rename = require('gulp-rename');
 
-function buildPug () {
-    return src(path.srcPath + '/*.pug')
+function buildPug (cb) {
+    return src(path.srcPath + '/pages/**/*.pug')
         .pipe(
             pug({
-                pretty:false
+                pretty:true
             })
         )
+        .pipe(rename({
+            dirname:"",
+        }))
         .pipe(dest(path.buildPath));
+    cb();
 };
 
 function buildCSS (){
@@ -34,19 +40,23 @@ function transformPicture() {
         .pipe(webp({
             method: 6,
         }))
+        .pipe(rename({
+            dirname:"",
+        }))
         .pipe(dest(path.buildPath+'/images'))
 }
 
 function buildJS() {
     return src(path.srcPath)
     .pipe(webpack(require('../webpack.config.js')))
-    .pipe(dest(path.buildPath));
+    .pipe(dest(path.buildPath + '/'));
 }
 
 exports.default = async (cb) =>{
     await del(path.buildPath,{force:true});
     buildPug();
     buildCSS();
+    buildJS();
     transformPicture();
     cb();
 }
