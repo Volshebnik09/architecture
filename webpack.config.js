@@ -4,8 +4,7 @@ var path = require('path');
 module.exports = {
   mode: 'development',
   entry: {
-    ExampleBlock2:  '../src/sections/ExampleBlock2/index.js',
-    ExampleBlock: '../src/sections/ExampleBlock/index.js',
+    main: "../src/pages/main/main.js"
   },
   optimization: {
     splitChunks: {
@@ -21,7 +20,7 @@ module.exports = {
   //   })
   // ]
   output: {
-    filename: 'bundle.js',
+    filename: 'scripts/[name].bundle.js',
     path: path.resolve(__dirname, '../dist')
   }
 };

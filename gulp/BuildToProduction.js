@@ -37,6 +37,12 @@ function transformPicture() {
         .pipe(dest(path.buildPath+'/images'))
 }
 
+function buildJS() {
+    return src(path.srcPath)
+    .pipe(webpack(require('../webpack.config.js')))
+    .pipe(dest(path.buildPath));
+}
+
 exports.default = async (cb) =>{
     await del(path.buildPath,{force:true});
     buildPug();
