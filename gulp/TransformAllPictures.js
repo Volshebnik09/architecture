@@ -5,9 +5,6 @@ const webp = require('gulp-webp');
 function transformPicture() {
     return src(path.srcPath +'/**/*.{png,jpeg}')
         .pipe(webp())
-        .pipe(rename({
-            dirname:"",
-        }))
         .pipe(dest(path.buildPath+'/images'))
 }
 exports.default = (cb) =>{

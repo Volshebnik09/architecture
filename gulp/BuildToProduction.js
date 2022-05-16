@@ -44,9 +44,6 @@ function transformPicture() {
         .pipe(webp({
             method: 6,
         }))
-        .pipe(rename({
-            dirname:"",
-        }))
         .pipe(dest(path.buildPath+'/images'))
 }
 

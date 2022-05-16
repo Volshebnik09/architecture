@@ -35,9 +35,6 @@ function buildCSS (){
 function transformPicture() {
     return src(path.srcPath +'/**/*.{png,jpeg}')
         .pipe(webp())
-        .pipe(rename({
-            dirname:"",
-        }))
         .pipe(dest(path.distPath+'/images'))
 }
 
