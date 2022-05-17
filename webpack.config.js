@@ -3,7 +3,6 @@ var path = require('path');
 module.exports = {
   entry: {
     main: "../src/pages/main/main.js",
-    page1: '../src/pages/page1/page1.js'
   },
   optimization: {
     splitChunks: {

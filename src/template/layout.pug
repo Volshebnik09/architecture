@@ -1,4 +1,5 @@
 doctype html
+include includedMixins
 html(lang="en")
     block head
         head
@@ -9,5 +10,7 @@ html(lang="en")
             title Document
     body
         block header
+            include header/header.pug
         block content
         block footer
+            include footer/footer.pug

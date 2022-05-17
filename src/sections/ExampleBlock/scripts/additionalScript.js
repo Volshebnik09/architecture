@@ -1,1 +1,0 @@
-document.querySelector('.ExampleBlock').style.background ="blue";

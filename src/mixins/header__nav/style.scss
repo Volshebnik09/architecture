@@ -1,0 +1,13 @@
+.header__nav ul {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.header__li a{
+  color:$blue;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
