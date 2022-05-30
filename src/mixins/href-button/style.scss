@@ -1,0 +1,31 @@
+.href-button--green--mixin, .href-button--blue--mixin {
+  padding: 18px 51px 18px 43px;
+  border-radius: 60px;
+  color: $white;
+  transition: 0.2s;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 140%;
+  white-space: nowrap;
+  display: inline-block;
+}
+.href-button--blue--mixin {
+  background: $active;
+}
+.href-button--green--mixin{
+  background: #309F85;
+}
+.href-button--green--mixin:hover, .href-button--blue--mixin:hover {
+  box-shadow: 0px 20px 50px rgba(0, 0, 0, 0.1);
+}
+.href-button--blue--mixin:active {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #3C336C;
+}
+.href-button--green--mixin:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #309F85;
+}
+.href-button--green--mixin:disabled, .href-button--blue--mixin:disabled{
+  background: #C4C4C4;
+}

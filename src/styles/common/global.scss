@@ -18,11 +18,14 @@ a {
   text-decoration: none;
 }
 .container {
-  padding: 0 15px;
-  max-width: 1200px;
+  max-width: 1630px;
   margin: auto;
+  padding: 0 15px;
+  min-width: 480px;
 }
-
+section {
+  min-width:480px;
+}
 li {
   list-style: none;
 }

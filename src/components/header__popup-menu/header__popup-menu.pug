@@ -1,0 +1,26 @@
+.header__popup-menu
+    .header__popup-menu__content
+        .header__popup-menu__top
+            .header__popup-menu__close
+                include images/🌈 COLOR (1).svg
+        nav.header__popup-menu__nav
+            ul.header__popup-menu__ul
+                li.header__popup-menu__li#checkForClick
+                    | Все товары
+                    ul.header__popup-menu__subli
+                        li.header__popup-menu__li
+                            a(href="#") Толстовки
+                        li.header__popup-menu__li
+                            a(href="#") Свитшоты
+                        li.header__popup-menu__li
+                            a(href="#") Футболки
+                        li.header__popup-menu__li
+                            a(href="#") Поло
+                li.header__popup-menu__li
+                    a(href="#") Производство
+                li.header__popup-menu__li
+                    a(href="#") Информация
+        a.header__email(href='#')
+            | example@gmail.com
+        +href-button('+380 630 130 103','green')
+        +links-holder()

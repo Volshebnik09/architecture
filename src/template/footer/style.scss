@@ -1,0 +1,229 @@
+.footer{
+  position: relative;
+  @include h6;
+  min-width: 480px;
+  .footer__img-bg img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  .container{
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 20px;
+
+    .footer__logo__svg svg{
+      max-width: 100%;
+    }
+    .footer__logo__title{
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: 0.065em;
+
+      /* gray */
+      color: #454747;
+    }
+  }
+
+  ul.footer__menu {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+    padding: 0;
+    li.footer__menu__li a {
+      @include h6;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 52px;
+
+      /* or 289% */
+
+      color: #454747;
+
+
+    }
+  }
+
+  .footer__contacts{
+    display: flex;
+    align-items: center;
+    .footer__contacts__number{
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 21px;
+
+      color: #272525;
+    }
+    .footer__contacts__email {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 21px;
+
+      /* identical to box height */
+      text-decoration-line: underline;
+
+      color: #272525;
+    }
+    .links-holder {
+      margin-left: 90px;
+      margin-right: 50px;
+      svg {
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+  .footer__backdoor {
+    .footer__backdoor__title{
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 36px;
+
+      /* identical to box height, or 180% */
+
+      color: #272525;
+      margin-top: 20px;
+    }
+    .footer__backdoor__subtitle{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 130%;
+
+      /* or 18px */
+
+      color: #8F90A6;
+    }
+    .number-form {
+      margin-top: 20px;
+    }
+  }
+  .footer__description{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    a{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 15px;
+
+      /* identical to box height */
+      text-align: center;
+      text-decoration-line: underline;
+
+      color: #9FA3B2;
+    }
+
+  }
+}
+@media (min-width: 768px) {
+  .footer__contacts{
+    grid-area: contacts;
+  }
+  .footer__logo{
+    grid-area: logo;
+  }
+  .footer__menu {
+    grid-area: ul;
+  }
+  .footer__backdoor{
+    grid-area: backdoor;
+  }
+  .footer__description {
+    grid-area: description;
+  }
+
+}
+@media (min-width: 768px) and (max-width: 999px) {
+    .footer {
+      .container {
+        padding-top: 60px;
+        display: grid;
+        grid-template-columns: 1.7fr 0.7fr 0.6fr 1fr;
+        grid-template-rows: 1fr 1fr 1.7fr 0.3fr;
+        gap: 0px 0px;
+        grid-template-areas:
+        "logo logo logo contacts"
+        "ul ul backdoor backdoor"
+        "ul ul backdoor backdoor"
+        "description description description description";
+      }
+      .footer__logo{
+        grid-area: logo;
+      }
+      .footer__contacts{
+        grid-area: contacts;
+        display: block;
+        .links-holder {
+          margin: 20px 0 0 0;
+        }
+      }
+      .footer__menu {
+        grid-area: ul;
+      }
+      .footer__backdoor{
+        grid-area: backdoor;
+      }
+      .footer__description {
+        grid-area: description;
+      }
+    }
+}
+@media (min-width: 1000px) and (max-width: 1299px){
+  .footer{
+    .container{
+      display: grid;
+      grid-template-columns: 1.1fr 0.5fr;
+      grid-template-rows: 1.1fr 1.1fr 0.8fr 0.3fr;
+      gap: 0px 0px;
+      grid-template-areas:
+      "logo ul"
+      "contacts ul"
+      "backdoor backdoor"
+      "description description";
+    }
+    .footer__contacts{
+      display: block;
+      .links-holder {
+        margin: 20px 0 0 0;
+      }
+    }
+    .footer__backdoor{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .footer__backdoor__title{
+        margin-top: 0;
+      }
+      form {
+        transform: translateY(-20%);
+      }
+    }
+  }
+}
+@media (min-width: 1300px){
+  .footer {
+    .container{
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 0.8fr;
+      grid-template-rows: auto auto 0fr;
+      gap: 0px 0px;
+      grid-template-areas:
+      "logo ul backdoor"
+      "contacts ul backdoor"
+      "description description description";
+    }
+    .footer__contacts{
+      display: block;
+      .links-holder {
+        margin: 20px 0 0 0;
+      }
+    }
+  }
+}

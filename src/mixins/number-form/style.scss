@@ -1,0 +1,34 @@
+form.number-form {
+  width: 277px;
+  height: 54px;
+  position: relative;
+  overflow: hidden;
+  input {
+    height: 100%;
+    width: 100%;
+    background: #FFFFFF;
+    border: 2px solid #272525;
+    border-radius: 15px;
+    outline: none;
+    @include h6();
+    font-size: 16px;
+    padding-left: 10px;
+  }
+
+  button {
+    background: #524983;
+    height: 34px;
+    width: 34px;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    svg {
+      transform: translateY(5%);
+    }
+  }
+}

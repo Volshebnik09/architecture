@@ -3,10 +3,11 @@ const path = require('../projectConfig.json').path;
 const sassGlob = require('gulp-sass-glob');
 const sass = require('gulp-sass')(require('sass'));
 const pug = require('gulp-pug');
-var webpack = require('gulp-webpack');
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
 const webp = require('gulp-webp');
 const rename = require('gulp-rename');
-
+var path2 = require('path');
 
 function buildPug (cb) {
     return src(path.srcPath + '/pages/**/*.pug')
@@ -38,10 +39,17 @@ function transformPicture() {
 }
 
 function buildJS() {
-    return src('../src')
-    .pipe(webpack(require('../webpack.config.js')))
-    .pipe(dest('../dist/'));
+    return src('../src/pages/**/*.js')
+        .pipe(webpackStream(
+            require('../webpack.config.js')
+        ))
+        .on('error', function (err) {
+            console.error('WEBPACK ERROR', err);
+            this.emit('end'); // Don't stop the rest of the task
+        })
+        .pipe(dest(path.distPath))
 }
+
 exports.default= (cb) =>{
     buildPug();
     buildCSS();

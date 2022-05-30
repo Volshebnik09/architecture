@@ -1,0 +1,6 @@
+mixin href-button(name='href-button',mode="blue", href="#")
+    case mode
+        when 'green'
+            a.href-button--green--mixin(class!=attributes.class href=href)=name
+        default
+            a.href-button--blue--mixin(class!=attributes.class href=href)=name

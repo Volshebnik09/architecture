@@ -1,17 +1,19 @@
 // импорт общих стилей, переменных
 @import "common/*.scss";
 
-// импорт стилей статичных блоков на подобие header и footer
-@import "../template/**/style.scss";
-
-// импорт стилей компонентов
-@import "../components/**/style.scss";
+// испорт шрифтов
+@import "../base/fonts/fonts.scss";
 
 // импорт миксинов
 @import "../mixins/**/style.scss";
 
+// импорт стилей компонентов
+@import "../components/**/style.scss";
+
+// импорт стилей статичных блоков на подобие header и footer
+@import "../template/**/style.scss";
+
 // импорт стилей секций
 @import "../sections/**/style.scss";
 
-// испорт шрифтов
-@import "../base/fonts/fonts.scss";
+

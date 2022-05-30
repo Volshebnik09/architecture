@@ -1,5 +1,5 @@
 const {path} = require("../projectConfig.json");
-const { src, dest,watch } = require('gulp');
+const { src, dest, watch } = require('gulp');
 const webp = require('gulp-webp');
 
 function transformPicture() {

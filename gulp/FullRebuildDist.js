@@ -6,7 +6,8 @@ const pug = require('gulp-pug');
 const webp = require('gulp-webp');
 const del = require('del');
 const rename = require('gulp-rename');
-const webpack = require('gulp-webpack');
+const webpackStream = require("webpack-stream");
+const webpack = require('webpack');
 
 
 function buildPug (cb) {
@@ -39,9 +40,15 @@ function transformPicture() {
 }
 
 function buildJS() {
-    return src('../src')
-    .pipe(webpack(require('../webpack.config.js')))
-    .pipe(dest('../dist/'));
+    return src('../src/pages/**/*.js')
+        .pipe(webpackStream(
+            require('../webpack.config.js')
+        ))
+        .on('error', function (err) {
+            console.error('WEBPACK ERROR', err);
+            this.emit('end'); // Don't stop the rest of the task
+        })
+        .pipe(dest(path.distPath))
 }
 
 exports.default= async(cb) =>{

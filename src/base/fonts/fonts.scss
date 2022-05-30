@@ -1,1 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@600;700&display=swap');
+
+// Вместо Gilroy используем Inter
+@mixin h1 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 105.5%;
+  /* identical to box height, or 68px */
+
+
+  color: #000000;
+}
+@mixin h2 {
+  font-style: normal;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 105.5%;
+  /* identical to box height, or 51px */
+
+
+  color: #000000;
+}
+@mixin h3{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 105.5%;
+  /* identical to box height, or 38px */
+
+
+  color: #000000;
+}
+@mixin h4{
+  font-style: normal;
+  font-family: 'Inter';
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 105.5%;
+  /* or 25px */
+
+
+  color: #000000;
+}
+@mixin h5{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 105.5%;
+  /* identical to box height, or 21px */
+
+
+  color: #000000;
+}
+@mixin h6 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 105.5%;
+  /* identical to box height, or 19px */
+
+
+  color: #000000;
+}
