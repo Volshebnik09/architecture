@@ -10,15 +10,13 @@ const webpack = require('webpack');
 const rename = require('gulp-rename');
 const minify = require('gulp-minify');
 
-var webpackCFG = require('../webpack.config.js');
 const webpackStream = require("webpack-stream");
 
-console.log(webpackCFG)
 function buildPug (cb) {
     return src(path.srcPath + '/pages/**/*.pug')
         .pipe(
             pug({
-                pretty:true
+                pretty:false
             })
         )
         .pipe(rename({
@@ -43,7 +41,10 @@ function buildCSS (){
 function transformPicture() {
     return src(path.srcPath +'/**/*.{png,jpeg}')
         .pipe(webp({
-            method: 6,
+            method: 5,
+        }))
+        .pipe(rename(function (path){
+            path.dirname = path.dirname.split("\\").filter(el=> el != 'images').join('\\')
         }))
         .pipe(dest(path.buildPath+'/images'))
 }
@@ -51,12 +52,18 @@ function transformPicture() {
 function buildJS() {
     return src('../src/pages/**/*.js')
         .pipe(webpackStream(
-            require('../webpack.config.js')
+            require('../webpack.config.build.js')
         ))
         .on('error', function (err) {
             console.error('WEBPACK ERROR', err);
             this.emit('end'); // Don't stop the rest of the task
         })
+        .pipe(minify({
+            ext:{
+                min:'.js'
+            },
+            noSource: true
+        }))
         .pipe(dest(path.buildPath))
 }
 

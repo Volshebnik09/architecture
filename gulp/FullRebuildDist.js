@@ -14,7 +14,7 @@ function buildPug (cb) {
     return src(path.srcPath + '/pages/**/*.pug')
         .pipe(
             pug({
-                pretty:true
+                pretty:false
             })
         )
         .pipe(rename({
@@ -36,6 +36,7 @@ function buildCSS (){
 function transformPicture() {
     return src(path.srcPath +'/**/*.{png,jpeg}')
         .pipe(webp())
+
         .pipe(dest(path.distPath+'/images'))
 }
 
