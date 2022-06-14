@@ -3,13 +3,11 @@ const path = require('../projectConfig.json').path;
 const sassGlob = require('gulp-sass-glob');
 const sass = require('gulp-sass')(require('sass'));
 const pug = require('gulp-pug');
-const webpack = require('webpack');
 const webpackStream = require('webpack-stream');
 const webp = require('gulp-webp');
 const rename = require('gulp-rename');
-var path2 = require('path');
 
-function buildPug (cb) {
+function buildPug () {
     return src(path.srcPath + '/pages/**/*.pug')
         .pipe(
             pug({
@@ -20,8 +18,7 @@ function buildPug (cb) {
             dirname:"",
         }))
         .pipe(dest(path.distPath));
-    cb();
-};
+}
 
 function buildCSS (){
     return src(path.srcPath + '/styles/*.scss')
@@ -34,11 +31,16 @@ function buildCSS (){
 
 function transformPicture() {
     return src(path.srcPath +'/**/*.{png,jpeg}')
-    .pipe(webp())
+    .pipe(webp({
+        method: 1,
+    }))
+    .pipe(rename(function (path){
+        path.dirname = path.dirname.split("\\").filter(el=> el != 'images').join('\\')
+    }))
     .pipe(dest(path.distPath+'/images'))
 }
 
-function buildJS(cb) {
+function buildJS() {
     return src('../src/[pages,template]/**/*.js')
         .pipe(webpackStream(
             require('../webpack.config.js')
@@ -48,13 +50,13 @@ function buildJS(cb) {
             this.emit('end'); // Don't stop the rest of the task
         })
         .pipe(dest(path.distPath))
-    cb();
 }
 
 exports.default= (cb) =>{
     buildPug();
     buildCSS();
     buildJS();
+    transformPicture();
     watch(path.srcPath + '/**/*.pug',buildPug);
     watch(path.srcPath + '/**/*.scss',buildCSS);
     watch(path.srcPath +'/**/*.{png,jpeg}',transformPicture);
