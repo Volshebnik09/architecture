@@ -3,7 +3,7 @@
 Thumbs.db
 
 # Файлы редактора
-../charity/.idea
+.idea
 *.sublime*
 .vscode
 
