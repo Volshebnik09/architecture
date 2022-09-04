@@ -1,0 +1,66 @@
+.index__board-members{
+  margin-bottom: 40px;
+  &__holder{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px 40px;
+  }
+  &__member{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 17px;
+    align-items: center;
+    width: 315px;
+    &__img{
+      width: 315px;
+      height: 315px;
+      border-radius: 50%;
+      background: #C4C4C4;
+      img{
+        width: 315px;
+        height: 315px;
+        border-radius: 50%;
+        background: #C4C4C4;
+      }
+      img[src='images/.jpg']{
+        opacity: 0;
+      }
+    }
+    &__stats{
+      white-space:nowrap;
+      background: #FFFFFF;
+      box-shadow: 4px 4px 85px rgba(0, 0, 0, 0.25);
+      border-radius: 15px;
+      width: 100%;
+      min-height: 96px;
+      font-family: 'Jost',serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 26px;
+      /* identical to box height */
+
+
+      color: #000000;
+      text-align: center;
+      padding:10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      &__status{
+        font-family: 'Jost',serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 23px;
+
+        color: #000000;
+      }
+    }
+  }
+}

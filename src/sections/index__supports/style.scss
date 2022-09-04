@@ -1,0 +1,44 @@
+.index__supports {
+  .container{
+    position: relative;
+  }
+
+  .index__supports__swiper{
+    position: relative;
+    margin: 40px;
+    margin-top: 100px;
+    overflow: hidden;
+    .swiper-wrapper{
+      transition-timing-function: linear;
+    }
+  }
+  .swiper-slide{
+    width: 124px;
+    height: 124px;
+    user-select: none;
+    img{
+      width: 124px;
+      height: 124px;
+    }
+  }
+  .swiper-button{
+    user-select: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(52, 169, 187, 0.3);
+    position: absolute;
+    top:50%;
+    &::after{
+      content: '';
+    }
+    img{
+      vertical-align: top;
+      position: absolute;
+      top:50%;
+      left:50%;
+
+      transform: translateY(-50%) translateX(-50%);
+    }
+  }
+}

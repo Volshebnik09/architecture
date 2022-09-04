@@ -1,0 +1,6 @@
+mixin sourceImg(name)
+    picture
+        source(srcset='images/'+name+'.webp' type="image/webp")
+        source(srcset='images/'+name+'.png' type="image/png")
+        source(srcset='images/' + name +'.jpg' type="image/jpg")
+        img(src='images/'+name+'.png' class!=attributes.class alt=name title=name)

@@ -1,31 +1,9 @@
 header.header
-    include  ../../components/header__popup-menu/header__popup-menu
-    .container.header__container
-        .header__top
-            a.header__logo(href='#')
-                include images/logo.svg
-            .header__right-side
-                include ../../components/header__search/search
-                +href-button('+380 630 130 103','green')
-                .header__popup-button
-                    include images/🌈 COLOR.svg
-
-    .header__bottom
-        .container
-            nav.header__nav
-              ul.header__ul
-                li.header__li
-                    a(href="#") Все товары
-                    ul.header__subul
-                        li.header__li
-                            a(href="#") Толстовка
-                        li.header__li
-                            a(href="#") Свитшоты
-                        li.header__li
-                            a(href="#") Футболки
-                        li.header__li
-                            a(href="#") Поло
-                li.header__li
-                    a(href="#") Производство
-                li.header__li
-                    a(href="#") Информация
+    script(defer src='scripts/header.bundle.js')
+    +nav().header__nav
+    a(href='index')
+        +sourceImg('nav__logo')
+    .header__burger-btn
+        span
+    +nav().header__popup__nav
++sourceImg('banner').top-banner

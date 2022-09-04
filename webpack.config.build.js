@@ -3,8 +3,18 @@ var path = require('path');
 module.exports = {
     mode: 'development',
     entry: {
-        main:"../src/pages/main/main.js",
-        // second: "../src/pages/second/second.js" пример подгрузки след. страницы
+        index: "../src/pages/index/index.js",
+    },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendors',
+                    chunks: "all"
+                }
+            }
+        }
     },
     module: {
         rules: [{
@@ -16,7 +26,11 @@ module.exports = {
                     presets: ['@babel/preset-env']
                 }
             }
-        }]
+        },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            }]
     },
     output: {
         filename: 'scripts/[name].bundle.js',

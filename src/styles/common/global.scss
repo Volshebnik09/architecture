@@ -4,27 +4,33 @@
 
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 img {
   max-width: 100%;
+  vertical-align: top;
+  &[alt=''][title='']{
+    display: none;
+  }
 }
 
 a {
   text-decoration: none;
 }
 .container {
-  max-width: 1630px;
+  max-width: 1090px;
   margin: auto;
   padding: 0 15px;
-  min-width: 480px;
 }
 section {
-  min-width:480px;
+  //min-width:480px;
 }
 li {
   list-style: none;

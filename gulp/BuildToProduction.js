@@ -16,14 +16,14 @@ function buildPug (cb) {
     return src(path.srcPath + '/pages/**/*.pug')
         .pipe(
             pug({
-                pretty:false
+                pretty:true,
+                data: require('../../charity/src/base/data/data.json')
             })
         )
         .pipe(rename({
             dirname:"",
         }))
         .pipe(dest(path.buildPath));
-    cb();
 };
 
 function buildCSS (){
@@ -41,10 +41,19 @@ function buildCSS (){
 function transformPicture() {
     return src(path.srcPath +'/**/*.{png,jpeg}')
         .pipe(webp({
-            method: 4,
+            method: 2,
         }))
         .pipe(rename(function (path){
-            path.dirname = path.dirname.split("\\").filter(el=> el != 'images').join('\\')
+            // path.dirname = path.dirname.split("\\").filter(el=> el != 'images').join('\\')
+            path.dirname = ''
+        }))
+        .pipe(dest(path.buildPath+'/images'))
+}
+function copyOtherImg(){
+    return src(path.srcPath +'/**/*.{png,jpeg}')
+        .pipe(rename(function (path){
+            // path.dirname = path.dirname.split("\\").filter(el=> el != 'images').join('\\')
+            path.dirname = ''
         }))
         .pipe(dest(path.buildPath+'/images'))
 }
@@ -73,5 +82,6 @@ exports.default = async (cb) =>{
     buildCSS();
     buildJS();
     transformPicture();
+    copyOtherImg();
     cb();
 }

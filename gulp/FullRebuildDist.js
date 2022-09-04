@@ -3,26 +3,26 @@ const path = require('../projectConfig.json').path;
 const sassGlob = require('gulp-sass-glob');
 const sass = require('gulp-sass')(require('sass'));
 const pug = require('gulp-pug');
+const webpackStream = require('webpack-stream');
 const webp = require('gulp-webp');
-const del = require('del');
 const rename = require('gulp-rename');
-const webpackStream = require("webpack-stream");
-const webpack = require('webpack');
+const autoprefixer = require('gulp-autoprefixer');
+const del = require("del");
 
-
-function buildPug (cb) {
+function buildPug () {
     return src(path.srcPath + '/pages/**/*.pug')
         .pipe(
             pug({
-                pretty:false
+                pretty:true,
+                data: require('../../charity/src/base/data/data.json')
             })
         )
+
         .pipe(rename({
             dirname:"",
         }))
         .pipe(dest(path.distPath));
-    cb();
-};
+}
 
 function buildCSS (){
     return src(path.srcPath + '/styles/*.scss')
@@ -30,18 +30,31 @@ function buildCSS (){
         .pipe(sass({
             outputStyle:'compressed',
         }).on('error', sass.logError))
+        .pipe(autoprefixer({
+            cascade: false,
+        }))
         .pipe(dest(path.distPath + '/styles'));
 }
 
 function transformPicture() {
-    return src(path.srcPath +'/**/*.{png,jpeg}')
-        .pipe(webp())
+    return src(path.srcPath +'/assets/**/*.{png,jpeg}')
+        .pipe(webp({
+            method: 1,
+        }))
+        .pipe(rename(function (path){
+            // path.dirname = path.dirname.split("\\").filter(el=> el != 'images').join('\\')
+            path.dirname = ''
+        }))
+        .pipe(dest(path.distPath+'/images'))
+}
 
+function copyOtherImg(){
+    return src(path.srcPath +'/assets/*.{png,jpeg,ico}')
         .pipe(dest(path.distPath+'/images'))
 }
 
 function buildJS() {
-    return src('../src/pages/**/*.js')
+    return src('../src/[pages,template]/**/*.js')
         .pipe(webpackStream(
             require('../webpack.config.js')
         ))
@@ -50,6 +63,7 @@ function buildJS() {
             this.emit('end'); // Don't stop the rest of the task
         })
         .pipe(dest(path.distPath))
+
 }
 
 exports.default= async(cb) =>{
@@ -57,6 +71,7 @@ exports.default= async(cb) =>{
     buildPug();
     buildCSS();
     buildJS();
+    copyOtherImg();
     transformPicture();
     cb();
 }

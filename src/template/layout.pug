@@ -1,15 +1,25 @@
 doctype html
 include includedMixins
-html(lang="en")
+html(lang="ru")
     block head
         head
+            meta(property="og:description" content="АНО Опека - она из первых некоммерческая организация в Тамбовской области, оказывающая услуги социальной помощи")
+            meta(property="og:title" content="\"ОПЕКА\"- Центр Социальной Помощи")
+            meta(property="og:image" content="images/banner.png")
+            meta(property="og:site_name" content="\"ОПЕКА\"- Центр Социальной Помощи")
+            meta(property="og:locale" content="ru")
+
             meta(charset="UTF-8")
             meta(http-equiv="X-UA-Compatible", content="IE=edge")
             meta(name="viewport", content="width=device-width, initial-scale=1.0")
             link(rel="stylesheet", href="styles/style.css")
-            title Document
+            title "ОПЕКА"- Центр Социальной Помощи
+            link(type="image/png" rel="shortcut icon" href='images/nav__logo.png')
+            meta(name="keywords" content="Опека, Тамбов, АНО Опека, село Сосновка ул. Трудовая, дом № 3, добро, делать добро, уход, социальная помощь, помощь")
+            meta(name="description" content="АНО Опека - она из первых некоммерческая организация в Тамбовской области, оказывающая услуги социальной помощи")
     body
         block header
+            script(src='scripts/vendors.bundle.js')
             include header/header.pug
         main.main
             block content

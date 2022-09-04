@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
-// Вместо Gilroy используем Inter
 @mixin h1 {
-  font-family: 'Inter';
+  font-family: 'Jost', serif;
   font-style: normal;
   font-weight: 700;
   font-size: 64px;
@@ -14,7 +13,7 @@
 }
 @mixin h2 {
   font-style: normal;
-  font-family: 'Inter';
+  font-family: 'Jost', serif;
   font-weight: 700;
   font-size: 48px;
   line-height: 105.5%;
@@ -24,7 +23,7 @@
   color: #000000;
 }
 @mixin h3{
-  font-family: 'Inter';
+  font-family: 'Jost', serif;
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
@@ -36,7 +35,7 @@
 }
 @mixin h4{
   font-style: normal;
-  font-family: 'Inter';
+  font-family: 'Jost', serif;
   font-weight: 700;
   font-size: 24px;
   line-height: 105.5%;
@@ -46,7 +45,7 @@
   color: #000000;
 }
 @mixin h5{
-  font-family: 'Inter';
+  font-family: 'Jost', serif;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
@@ -57,7 +56,7 @@
   color: #000000;
 }
 @mixin h6 {
-  font-family: 'Inter';
+  font-family: 'Jost', serif;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -66,4 +65,67 @@
 
 
   color: #000000;
+}
+
+
+p{
+  font-family: 'Jost',serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+
+  color: #000000;
+}
+
+h2{
+  font-family: 'Jost',serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  /* identical to box height */
+
+
+  color: #000000;
+  padding: 8px 20px 7px 20px;
+  background: #FFFFFF;
+  box-shadow: 4px 4px 85px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: inline-block;
+}
+h3{
+  font-family: 'Jost',serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+
+  color: #000000;
+
+}
+.M-dotedText{
+  position: relative;
+  font-family: "Jost",serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 26px;
+  color: #000;
+  margin-left: 47px;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: -47px;
+    transform: translateY(-50%);
+    background: rgba(52,169,187,.6);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+}
+
+.SEO-Hidden{
+  display: none;
 }

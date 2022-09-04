@@ -1,0 +1,74 @@
+mixin nav(roots)
+    -
+        if (!roots)
+            roots = [
+                {
+                    name: 'О нас',
+                    url: 'index',
+                    additionalItems:[
+                        {
+                            name: 'Команда',
+                            url: 'team',
+                        },
+                    ]
+                },
+                {
+                    name: 'Стационарный уход',
+                    url: 'stationary',
+                    additionalItems: [
+                        // {
+                        //     name: 'Тарифы',
+                        //     url: '#',
+                        // },
+                        {
+                            name: 'Расчёт стоимости <br> прибывания',
+                            url: 'calculator',
+                        },
+                    ]
+                },
+                {
+                    name: 'Новости',
+                    url: 'news',
+                    additionalItems: [
+                        {
+                            name: 'Благотворительные программы',
+                            url: "charityPrograms",
+                        },
+                    ]
+                },
+                {
+                    name: 'Контакты',
+                    url: 'contacts',
+                    additionalItems: [
+                        {
+                            name: 'Реквизиты',
+                            url: 'requisites',
+                        },
+                    ]
+                },
+                {
+                    name: 'Документы',
+                    url: 'documents',
+                    additionalItems: [
+                        {
+                            name: 'Отчёты',
+                            url: 'reports',
+                        },
+                    ]
+                },
+                {
+                    name: 'Помочь сейчас',
+                    url: 'helpNow',
+                    additionalItems: []
+                }
+            ]
+    nav(class!=attributes.class)
+        ul
+            each root in roots
+                li
+                    a(href=root.url ? root.url : '#' title=root.name)= root.name
+                    if (root.additionalItems.length > 0)
+                        ul.NAV__additionalItems
+                            each item in root.additionalItems
+                                li
+                                    a(href=item.url ? item.url : '#' title=item.name)!= item.name

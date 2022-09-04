@@ -1,10 +1,27 @@
 var path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'development',
+  watch: true,
   entry: {
-    // second: "../src/pages/second/second.js" пример подгрузки след. страницы
+    index: "../src/pages/index/index.js",
   },
+  // plugins: [
+  //   new BundleAnalyzerPlugin()
+  // ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: "all"
+        }
+      }
+    }
+  },
+
   module: {
     rules: [{
       test: /\.m?js$/,
@@ -15,9 +32,15 @@ module.exports = {
           presets: ['@babel/preset-env']
         }
       }
-    }]
+    },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }]
   },
   output: {
     filename: 'scripts/[name].bundle.js',
-  }
+  },
+
+
 };
